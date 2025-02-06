@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const User = require("./models/User");
 require("dotenv").config();
 
 const app = express();
@@ -45,6 +46,34 @@ app.delete('/todos/:id', async (req, res) => {
     res.json({ message: "Deleted Successfully" });
 });
 
+//Login and Signup activities
+app.post("/login" , async (req , res) =>{
+    const {username , password} = req.body;
+    const user = await User.findOne({username , password});
+    if(user){
+        res.json({message : "Login successfull" , user});
+    }
+    else{
+        res.status(401).json({error : "Invalid Credentials"});
+    };
+});
 
+app.post("/signup", async (req, res) => {
+    const { username, password } = req.body;
+  
+    try {
+   
+      const existingUser = await User.findOne({ username });
+      if (existingUser) {
+        return res.status(400).json({ error: "Username already exists" });
+      }
 
+      const newUser = new User({ username, password });
+      await newUser.save();
+      res.status(201).json({ message: "User registered successfully!" });
+    } catch (err) {
+      res.status(500).json({ error: "Registration failed" });
+    }
+  });
+  
 app.listen(5000, () => console.log("Server running on port 5000"));
