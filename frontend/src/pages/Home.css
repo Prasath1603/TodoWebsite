@@ -1,3 +1,7 @@
+/* *{
+  margin: 0;
+  padding: 0;
+} */
 .Home {
     text-align: center;
   }
@@ -77,7 +81,7 @@
   }
   
   span {
-    width: 140px;
+    width: 200px;
     display: flex;
     align-items:flex-start;
     gap: 20px; /* Space between the icon and task title */
@@ -112,12 +116,37 @@
     /* justify-content: center; */
     font-size: calc(10px + 2vmin);
     color: white;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .Home-link {
     color: #61dafb;
   }
-  
+  .username{
+    margin-left: 20px;
+    background-color: #282c34;
+    display: flex;
+    /* padding-left:  */
+    color: white;
+    justify-content: flex-start;
+    margin: 0 ;
+    padding: 0 ;
+    padding: 2rem 0 0 2rem;
+  }
+  .xx{
+    background-color: #282c34;
+  }
+  .logout-btn{
+    margin: 0.5rem 0 0 2rem;
+    display: flex;
+    justify-content: flex-start;
+
+    background-color: rgb(9, 9, 147);
+  }
+  .logout-btn:hover{
+    background-color: rgb(16, 16, 135);
+  }
   @keyframes Home-logo-spin {
     from {
       transform: rotate(0deg);

@@ -19,14 +19,15 @@ mongoose.connect(process.env.MONGO_URI, {
 
 const todoSchema = new mongoose.Schema({
     title: { type: String, required: true },
-    completed: { type: Boolean, required: true }
+    completed: { type: Boolean, required: true },
+    userId : { type : mongoose.Schema.Types.ObjectId , ref : "User" , required : true}
 });
 
 const TodoModel = mongoose.model("Todo", todoSchema);
 
 
-app.get('/todos', async (req, res) => {
-    const todos = await TodoModel.find();
+app.get('/todos/:userId', async (req, res) => {
+    const todos = await TodoModel.find({userId : req.params.userId});
     res.json(todos);
 });
 
@@ -70,7 +71,7 @@ app.post("/signup", async (req, res) => {
 
       const newUser = new User({ username, password });
       await newUser.save();
-      res.status(201).json({ message: "User registered successfully!" });
+      res.status(201).json({ message: "User registered successfully!" , user : newUser} );
     } catch (err) {
       res.status(500).json({ error: "Registration failed" });
     }

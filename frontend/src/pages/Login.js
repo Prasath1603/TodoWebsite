@@ -16,6 +16,8 @@ function Login() {
         password,
       });
       console.log(response.data);
+      localStorage.setItem("userId" , response.data.user._id);
+      localStorage.setItem("userName" , username);
       navigate("/home");  // Navigate only after successful login
     } catch (err) {
       setError("Invalid username or password");  // Better error message
@@ -25,10 +27,13 @@ function Login() {
   const handleSignup = async () =>{
     try{
         const response = await axios.post("http://localhost:5000/signup", {
-            username , password
+            username , password 
         });
 
         console.log("New user added");
+        localStorage.setItem("userId" , response.data.user._id);
+        localStorage.setItemem("userName" , username);
+
         navigate("/home");
     }
     catch(err){
@@ -37,7 +42,7 @@ function Login() {
   }
   return (
     <div>
-      <header>Welcome to ToDo</header>
+      <header>Welcome to TaskNest</header>
       <p>Login to Continue!</p>
       <div className="login-form">
         <input

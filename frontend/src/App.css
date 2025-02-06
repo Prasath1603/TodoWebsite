@@ -34,7 +34,9 @@ input::placeholder {
   font-style: italic;
 }
 
-
+body{
+  background-color: #282c34;
+}
 button {
   padding: 10px 20px;
   background-color: #4CAF50; /* Green background */
