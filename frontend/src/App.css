@@ -1,0 +1,125 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+input {
+  width: 300px;
+  padding: 10px 15px;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+  border-color: #45a049;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.3);
+  background-color: #f9fff9;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green background */
+  color: white;              /* White text */
+  border: none;              /* No border */
+  border-radius: 8px;        /* Rounded corners */
+  cursor: pointer;           /* Pointer cursor on hover */
+  font-size: 16px;           /* Slightly larger font */
+  transition: all 0.3s ease; /* Smooth hover transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+.delete{
+  background-color: rgb(186, 34, 34);
+  font-weight: bold;
+}
+.delete:hover{
+  background-color: #7e1a1a; /* Darker green on hover */
+  transform: scale(1.05);    /* Slightly larger on hover */
+  box-shadow: 0 4px 8p
+}
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05);    /* Slightly larger on hover */
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.4); /* Stronger shadow */
+}
+
+button:active {
+  background-color: #3e8e41; /* Even darker on click */
+  transform: scale(0.98);    /* Slightly shrink on click */
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+span {
+  width: 140px;
+  display: flex;
+  align-items:flex-start;
+  gap: 20px; /* Space between the icon and task title */
+  cursor: pointer;
+  font-size: 18px;
+  flex: 1; /* Take up remaining space */
+}
+
+button.delete {
+  /* gap:20px; */
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.delete:hover {
+  background-color: #e60000;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
